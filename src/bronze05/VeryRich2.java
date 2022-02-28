@@ -1,18 +1,16 @@
 package bronze05;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class VeryRich2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        BigDecimal a = new BigDecimal(sc.next());
+        BigDecimal b = new BigDecimal(sc.next());
 
-       String a= sc.next();
-       String b= sc.next();
-       int c = a.length()-b.length();
-       double d = Math.pow(10,c);
-       System.out.println((int)d);
-       System.out.println(0);
-
+        System.out.println(a.divide(b,0,BigDecimal.ROUND_DOWN));
+        System.out.println(a.remainder(b));
 
     }
 }
