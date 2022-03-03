@@ -1,7 +1,5 @@
 package level01;
 
-import java.util.Arrays;
-
 public class Minimum_Rectangle {
 
     public int solution(int[][] sizes) {
