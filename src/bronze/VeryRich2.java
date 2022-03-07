@@ -1,4 +1,4 @@
-package bronze05;
+package bronze;
 
 import java.math.BigDecimal;
 import java.util.Scanner;

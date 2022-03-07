@@ -1,4 +1,4 @@
-package bronze05;
+package bronze;
 
 public class Welcome {
     public static void main(String[] args) {
