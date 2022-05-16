@@ -7,31 +7,31 @@ public class LevelC {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int a[] = {1,2,10,11,12,18};
-        ArrayList<Integer> al = new ArrayList<>();
+        int n = sc.nextInt();
         int sum =0;
-        for(int i=0; i<a.length;i++){
-            if(i==a.length-1){
-                if(sum!=0 &&a[i]-1 != a[i-1]){
-                    sum+=a[i];
-                    al.add(sum);
-                }else{
-                    al.add(a[i]);
-                }
-            }else{
-                if(a[i]+1 == a[i+1]){
-                    sum+=a[i];
-                }else if(sum!=0&&a[i]+1 != a[i+1]){
-                    sum+=a[i];
-                    al.add(sum);
-                    sum=0;
-                }else{
-                    al.add(a[i]);
+        int b =0;
+        for(int i =0; i<n; i++){
+            int k = sc.nextInt();
+            b= k;
+            if(k>100000){
+                if(b>750000){
+                    sum+= 65000;
+                }else if(b<=750000){
+                    sum += (b-100000)/10;
                 }
             }
-
+            if(k>750000){
+                if(b>1500000){
+                    sum+= 150000;
+                }else if(b<=1500000){
+                    sum += (b-750000)/5;
+                }
+            }
+            if(k>1500000){
+              sum += (k-1500000)/2.5;
+            }
         }
-        System.out.println(al);
+        System.out.println(sum);
 
     }
 }
