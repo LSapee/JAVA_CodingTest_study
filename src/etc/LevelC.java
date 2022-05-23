@@ -1,32 +1,37 @@
 package etc;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class LevelC {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        String t = sc.next();
-        String s = sc.next();
-        int sum =0;
-        String t1[] = t.split("");
-        ArrayList<String> al = new ArrayList<>(Arrays.asList(t1));
 
-        for(int i =al.size()-1; i>=0; i--){
-            if(!t.equals(s)){
-                t = al.get(i)+t;
-                al.remove(i);
-                sum++;
-                t = t.substring(0,n);
+        int n = sc.nextInt();
+        int y = sc.nextInt();
+        int m = sc.nextInt();
+        int k =0;
+        int sum =0;
+        int back =0;
+
+        for(int i = 0; i<m; i++){
+            k++;
+            int num = sc.nextInt();
+            if(k>n){
+                k=k-n;
             }
-            if(t.equals(s)){
+            if(k==num){
+                sum++;
+            }else {
+                back++;
+            }
+            if(back >y-1){
                 break;
             }
         }
-        System.out.println(sum);
-
-
+        if(back>y-1){
+            System.out.println(-1);
+        }else{
+            System.out.println(sum*1000);
+        }
     }
 }
