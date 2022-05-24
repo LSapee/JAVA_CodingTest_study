@@ -1,5 +1,7 @@
 package etc;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LevelC {
@@ -7,31 +9,24 @@ public class LevelC {
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        int y = sc.nextInt();
         int m = sc.nextInt();
-        int k =0;
-        int sum =0;
-        int back =0;
-
-        for(int i = 0; i<m; i++){
-            k++;
-            int num = sc.nextInt();
-            if(k>n){
-                k=k-n;
-            }
-            if(k==num){
-                sum++;
-            }else {
-                back++;
-            }
-            if(back >y-1){
-                break;
-            }
+        int food[] = new int[n];
+        int kcal[] = new int[m];
+        for(int i=0; i<n; i++){
+            food[i] = sc.nextInt();
         }
-        if(back>y-1){
-            System.out.println(-1);
-        }else{
-            System.out.println(sum*1000);
+        for(int i =0; i<m; i++){
+            int sum =0;
+            for(int j = 0; j<n; j++){
+                int a = sc.nextInt();
+                float b = (float) food[j]/100;
+                sum += (int)(a*b);
+            }
+            kcal[i] = sum;
+            sum =0;
+        }
+        for(int i =0; i<kcal.length; i++){
+            System.out.println(kcal[i]);
         }
     }
 }
