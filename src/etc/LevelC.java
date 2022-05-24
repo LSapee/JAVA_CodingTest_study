@@ -8,25 +8,33 @@ public class LevelC {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int food[] = new int[n];
-        int kcal[] = new int[m];
-        for(int i=0; i<n; i++){
-            food[i] = sc.nextInt();
-        }
-        for(int i =0; i<m; i++){
-            int sum =0;
-            for(int j = 0; j<n; j++){
-                int a = sc.nextInt();
-                float b = (float) food[j]/100;
-                sum += (int)(a*b);
+        int N = sc.nextInt();
+        int S = sc.nextInt();
+        int P = sc.nextInt();
+
+        int carrot[] = new int[N];
+        int big =0;
+        for(int i=0; i<N; ++i){
+            int mass = sc.nextInt();
+            int suger = sc.nextInt();
+            if(suger>=S-P&&S+P>=suger){
+                carrot[i] = mass;
             }
-            kcal[i] = sum;
-            sum =0;
         }
-        for(int i =0; i<kcal.length; i++){
-            System.out.println(kcal[i]);
+        for(int i =0; i<N; ++i){
+            big = Math.max(big,carrot[i]);
         }
+        for(int i=0; i<N; ++i){
+            if(carrot[i]==big&& big!=0){
+                big = i+1;
+            }
+        }
+        if(big>0){
+            System.out.println(big);
+        }else{
+            System.out.println("not found");
+        }
+
+
     }
 }
