@@ -5,7 +5,7 @@ import java.util.*;
 public class Num46 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+//test
         int n = sc.nextInt();
 
         String[] s = new String[n];
