@@ -24,30 +24,29 @@ public class Num1935 {
                 st.pop();
                 e = st.peek();
                 st.pop();
-                st.push(f*e);
+                st.push(e*f);
             }else if(aa==43){//+
                 f= st.peek();
                 st.pop();
                 e = st.peek();
                 st.pop();
-                st.push(f+e);
+                st.push(e+f);
             }else if(aa==45){//-
                 f= st.peek();
                 st.pop();
                 e = st.peek();
                 st.pop();
-                st.push(f-e);
+                st.push(e-f);
             }else if(aa==47){// /
                 f= st.peek();
                 st.pop();
                 e = st.peek();
                 st.pop();
-                st.push(f/e);
+                st.push(e/f);
             }
         }
         double answer = st.peek();
         st.pop();
-        System.out.println(AS[0]);
-        System.out.println(answer);
+        System.out.println(String.format("%.3f", answer));
     }
 }
