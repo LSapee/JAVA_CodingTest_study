@@ -8,10 +8,12 @@ public class Num1935 {
         Scanner sc = new Scanner(System.in);
 
         int a = sc.nextInt();
+
         String s = sc.next();
+
         char[] AS = s.toCharArray();
+
         Stack<Double> st = new Stack<>();
-        String and = "";
         double f =0;
         double e = 0;
         for(int i=0; i<s.length(); ++i){
@@ -47,6 +49,6 @@ public class Num1935 {
         }
         double answer = st.peek();
         st.pop();
-        System.out.println(String.format("%.3f", answer));
+        System.out.println(String.format("%.2f", answer));
     }
 }
