@@ -1,44 +1,79 @@
 package silver;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Num5464 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer tokens;
+    static int N,M,Rs[],Wk[], cars[];
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        input = new BufferedReader(new StringReader(src));
+        tokens = new StringTokenizer(input.readLine());
+        N = Integer.parseInt(tokens.nextToken());
+        M = Integer.parseInt(tokens.nextToken());
+        Rs = new int[N+1];
+        cars = new int[N+1];
+        Wk = new int[M+1];
+        for(int n=1; n<=N; n++) {
+            Rs[n] = Integer.parseInt(input.readLine());
+        }
+        for(int m=1; m<=M; m++) {
+            Wk[m] = Integer.parseInt(input.readLine());
+        }
 
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+        int sum = 0;
+        Queue<Integer> wating = new LinkedList<>();
+        outer : for(int t=0; t<2*M; t++) {
+            int car = Integer.parseInt(input.readLine());
 
-        int Rs[] = new int[n];
-        int Wk[] = new int[m];
-        int sum =0; //비용
-        for(int i=0; i<Rs.length;++i){
-            Rs[i] = sc.nextInt();
-        }
-        for(int i=0; i<Wk.length;++i){
-            Wk[i] = sc.nextInt();
-        }
-        int count = 0; //차량 확인
-        int l =0;
-        Queue<Integer> que = new LinkedList<>();
-        for(int i=0; i<m*2; ++i){
-            int c = sc.nextInt();
-                if(c>=0){
-                    que.add(c);
-                    ++count;
-                    ++l;
-                }else if(c<0){
-                    c = Math.abs(c);
-                    sum += Rs[l]*Wk[c-1];
-                    --l;
-                    que.poll();
+            if(car >= 0) { // 입차
+                // 빈자리 있는지 확인
+                for(int n=1; n<N+1; n++) { // 빈자리 있을경우
+                    if(cars[n] == 0) {
+                        cars[n] = car;
+                        continue outer;
+                    }
                 }
-                if(que.isEmpty()){
-                    break;
+                // 빈자리 없을 경우
+                wating.offer(car);
+
+            }else { // 출차
+                for(int n=1; n<N+1; n++) {
+                    if(cars[n] == car*(-1)) {
+                        cars[n] = 0;
+                        sum += Rs[n] * Wk[car*(-1)];
+                        if(!wating.isEmpty()) {
+                            cars[n] = wating.poll();
+                        }
+                        break;
+                    }
                 }
+            }
         }
+
         System.out.println(sum);
     }
+
+    static String src =
+            "2 4\r\n"
+                    + "5\r\n"
+                    + "2\r\n"
+                    + "100\r\n"
+                    + "500\r\n"
+                    + "1000\r\n"
+                    + "2000\r\n"
+                    + "3\r\n"
+                    + "1\r\n"
+                    + "2\r\n"
+                    + "4\r\n"
+                    + "-1\r\n"
+                    + "-3\r\n"
+                    + "-2\r\n"
+                    + "-4";
 }
