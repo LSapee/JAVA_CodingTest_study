@@ -29,5 +29,4 @@ public class Num2747 {
         }
         System.out.println(num[1]);
     }
-
 }

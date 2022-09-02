@@ -14,6 +14,5 @@ public class Num10817 {
         }
         Arrays.sort(a);
         System.out.println(a[1]);
-
     }
 }

@@ -8,6 +8,7 @@ public class Num10995 {
 
         int n = sc.nextInt();
         StringBuilder sb = new StringBuilder();
+
         if(n==1){
             System.out.println("*");
         }else{
