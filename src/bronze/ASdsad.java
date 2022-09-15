@@ -28,7 +28,7 @@ public class ASdsad {
             for(int j=0; j<a[i].length; j++){
                 System.out.printf("%02d ",a[i][j] );
             }
-            System.out.println();
+            System.out.println("mac tests");
         }
 
     }
