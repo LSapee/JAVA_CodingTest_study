@@ -7,49 +7,30 @@ import java.util.Scanner;
 
 public class Num1003 {
 
+    static Integer[][] zo = new Integer[41][2];
+    static Integer[] fibonacci(int n) {
 
-    int fibonacci(int n) {
-
-        if (n == 0) {
-            return 0;
-        } else if (n == 1) {
-            return 1;
-        } else {
-            return fibonacci(n-1) + fibonacci(n-2);
+        if(zo[n][0]==null ||zo[n][1]==null){
+            zo[n][0]=fibonacci(n-1)[0]+fibonacci(n-2)[0];
+            zo[n][1]=fibonacci(n-1)[1]+fibonacci(n-2)[1];
         }
 
+        return zo[n];
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-        int n =Integer.parseInt(bf.readLine());
-        Num1003 num1003 = new Num1003();
+        zo[0][0]=1;
+        zo[0][1]=0;
+        zo[1][0]=0;
+        zo[1][1]=1;
+        int a =Integer.parseInt(bf.readLine());
         StringBuilder sb = new StringBuilder();
-        int b =0;
-        int c =0;
-        int d =0;
-        for(int i=0; i<n; ++i){
-            int a =Integer.parseInt(bf.readLine());
-            if(a==0){
-                b=1;
-                c=0;
-            }else if(a==1){
-                b=0;
-                c=1;
-            }else{
-                b=1;
-                d=1;
-                for(int j=2; j<a; ++j){
-                    c = b+d;
-                    b = d;
-                    d = c;
-                }
-            }
-            sb.append(b);
-            sb.append(" ");
-            sb.append(c);
-            sb.append("\n");
+        while(a-->0){
+            int n = Integer.parseInt(bf.readLine());
+            fibonacci(n);
+            sb.append(zo[n][0]+" "+zo[n][1]).append("\n");
         }
         System.out.println(sb);
     }
