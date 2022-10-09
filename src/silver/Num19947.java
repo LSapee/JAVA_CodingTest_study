@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 public class Num19947 {
     public static int recursion(int x, int y){
-        if(y>=5){
+        if(y>=5 && y%3!=0){
             y-=5;
             x =(int)(x*1.35);
         }else if(y>=3){
