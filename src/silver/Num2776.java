@@ -11,6 +11,7 @@ public class Num2776 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
+
         int t = Integer.parseInt(st.nextToken());
         for(int i=0; i<t; ++i){
             int n = Integer.parseInt(br.readLine());
