@@ -6,10 +6,10 @@ public class Num8370 {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
 
-        int acW = sc.nextInt();
-        int buW = sc.nextInt();
-        int acH = sc.nextInt();
-        int buH = sc.nextInt();
-        System.out.println(acW*acH+buW+buH);
+       int a = sc.nextInt();
+       int b = sc.nextInt();
+       int c = sc.nextInt();
+       int d = sc.nextInt();
+        System.out.println(a*b+c*d);
     }
 }

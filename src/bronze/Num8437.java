@@ -9,15 +9,10 @@ public class Num8437 {
 
         BigInteger a = new BigInteger(sc.next());
         BigInteger b = new BigInteger(sc.next());
-        int c = a.remainder(BigInteger.TEN).intValue();
-
-        if(c%2==0){
-            a= a.divide(BigInteger.valueOf(2));
-            b = b.divide(BigInteger.valueOf(2));
-            System.out.println(a.add(b));
-            System.out.println(a.subtract(b));
-        }else{
-
-        }
+        BigInteger c = a.subtract(b);
+        a = c.divide(new BigInteger("2"));
+        b = a.add(b);
+        System.out.println(b);
+        System.out.println(a);
     }
 }
