@@ -9,7 +9,11 @@ public class Num14652 {
         int a = sc.nextInt();
         int b = sc.nextInt();
         int c =sc.nextInt();
-
-        System.out.println(c/b + " " + c/a);
+        int count =0;
+        while(c>=b){
+            c-=b;
+            count++;
+        }
+        System.out.printf("%d %d",count,c);
     }
 }
