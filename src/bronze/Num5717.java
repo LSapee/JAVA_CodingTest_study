@@ -7,12 +7,14 @@ public class Num5717 {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb =new StringBuilder();
 
-        while(sc.hasNextLine()){
+        while(1>0){
             int a = sc.nextInt();
             int b = sc.nextInt();
             a =a+b;
             if(a!=0){
                 sb.append(a).append("\n");
+            }else{
+                break;
             }
         }
 
